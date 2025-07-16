@@ -3,7 +3,8 @@
 This repository contains code to reproduce the experiments from our paper 
 [Intriguing Properties of Robust Classification](https://arxiv.org/pdf/2412.04245).
 It includes our e.g. our scripts for 
-[training](lipschitz/scripts/train/main.py) models and 
+([configuration](lipschitz/scripts/train/configurations)-based) model
+[training](lipschitz/scripts/train/main.py) and for
 [plotting](lipschitz/scripts/plot/results.py) results.
 
 ## Usage:
