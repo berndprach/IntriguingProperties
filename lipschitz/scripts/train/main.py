@@ -6,7 +6,6 @@ from pathlib import Path
 from lipschitz import data
 from lipschitz.io_functions import save_results, state_dict
 from lipschitz.io_functions.parser import dictionary_str
-from lipschitz.scripts.train.configurations.lipschitz_network import DEFAULT_CONFIGURATION
 from lipschitz.training.evaluate import evaluate
 from lipschitz.training.trainer import Trainer
 from lipschitz.scripts.train.configurations import DEFAULT_CONFIGURATIONS

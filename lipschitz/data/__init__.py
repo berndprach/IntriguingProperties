@@ -48,7 +48,7 @@ def get_loader_on_device(name, device=DEVICE, **kwargs) -> TrainEvalDataLoader:
 
 def get_loader(loader_kwargs, preprocessing_kwargs, device=DEVICE):
     dl = get_data_loader(**loader_kwargs)
-    print(f"Loaded {len(dl.train)}/{len(dl.eval)} train/eval batches.")
+    print(f"Loaded {len(dl.train)} train and {len(dl.eval)} eval batches.")
     dl.to_device(device)
     dl.map_x(preprocessors.get(**preprocessing_kwargs))
     return dl

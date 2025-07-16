@@ -10,10 +10,6 @@ from lipschitz.io_functions.result_parsing import get_results, filter_results
 
 plt.rcParams.update({'font.size': 14})
 
-# RESULTS_FOLDER = Path("outputs", "results")
-PLOT_FOLDER = Path("outputs", "result_plots")
-PLOT_FOLDER.mkdir(exist_ok=True)
-
 parser = argparse.ArgumentParser()
 add_arg = parser.add_argument
 add_arg("-c", "--constraints", type=dictionary_str, default="{'epochs': 100}")

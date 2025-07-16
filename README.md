@@ -9,14 +9,15 @@ It includes our e.g. our scripts for [training]() and [plotting]() results.
 ### Prerequisites:
 ```bash
 python -m venv venv
-source .venv/bin/activate
+source venv/bin/activate
 python -m pip install .
 ```
 
 ### Train models:
 ```bash
 train -c="simple_conv_net"
-train -c="lipschitz_network"
+train -c="lipschitz_network" -u="{'model.name': 'AOL-MLP'}"
+train -c="lipschitz_network" -u="{'model.name': 'CPL-LCN', 'optimizer.lr': 1.}"
 train -c="randomized_smoothing"
 ```
 
