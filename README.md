@@ -2,9 +2,11 @@
 
 This repository contains code to reproduce the experiments from our paper 
 [Intriguing Properties of Robust Classification](https://arxiv.org/pdf/2412.04245).
-It includes our e.g. our scripts for [training]() and [plotting]() results.
+It includes our e.g. our scripts for 
+[training](lipschitz/scripts/train/main.py) models and 
+[plotting](lipschitz/scripts/plot/results.py) results.
 
-## Train models:
+## Usage:
 
 ### Prerequisites:
 ```bash
@@ -36,15 +38,15 @@ plot -c="{'arguments.experiment_name': 'lr-search'}" -s="configuration.model.nam
 ### Robust scaling behavior:
 ```bash
 for TRAINING_SIZE in [48, 97, 195, 390, 781, 1_562, 3_125, 6_250, 12_500, 25_000, 50_000]:
-    train -exp="scaling" -u="{'epochs': 100*5000//TRAINING_SIZE, 'dataset.training_size': TRAINING_SIZE, 'optimizer.lr': 0.1}"
-    train -exp="scaling" -u="{'model.name': 'CPL-LCN', 'epochs': 100*5000//TRAINING_SIZE, 'dataset.training_size': TRAINING_SIZE, 'optimizer.lr': 1.}"
-    train -exp="scaling" -c="randomized_smoothing" -u="{'epochs': 100*5000//TRAINING_SIZE, 'dataset.training_size': TRAINING_SIZE, 'optimizer.lr': 0.3}"
+    train -exp="scaling" -u="{'epochs': 3000*50000//TRAINING_SIZE, 'dataset.training_size': TRAINING_SIZE, 'optimizer.lr': 0.1}"
+    train -exp="scaling" -u="{'model.name': 'CPL-LCN', 'epochs': 3000*50000//TRAINING_SIZE, 'dataset.training_size': TRAINING_SIZE, 'optimizer.lr': 1.}"
+    train -exp="scaling" -c="randomized_smoothing" -u="{'epochs': 3000*50000//TRAINING_SIZE, 'dataset.training_size': TRAINING_SIZE, 'optimizer.lr': 0.3}"
 plot -c="{'arguments.experiment_name': 'scaling'}" -s="configuration.model.name" -x="configuration.dataset.training_size" -xs="log"
 ```
 
 ### Scaling behavior with EDM data:
 ```bash
-for TRAINING_SIZE in [30, 61, 122, 244, 488, 976, 1953, 3906, 7812, 15625, 31250, 62500, 125000, 250000, 500000, 1000000]:
+for TRAINING_SIZE in [30, 61, 122, 244, 488, 976, 1_953, 3_906, 7_812, 15_625, 31_250, 62_500, 125_000, 250_000, 500_000, 1_000_000]:
     train -exp="edm_scaling" -u="{'epochs': 3_000, 'dataset.name': 'EDMCIFAR10', 'dataset.training_size': TRAINING_SIZE, 'optimizer.lr': 0.1}"
     train -exp="edm_scaling" -u="{'model.name': 'CPL-LCN', 'epochs': 3_000, 'dataset.name': 'EDMCIFAR10', 'dataset.training_size': TRAINING_SIZE, 'optimizer.lr': 1.}"
     train -exp="edm_scaling" -c="randomized_smoothing" -u="{'epochs': 100, 'dataset.name': 'EDMCIFAR10', 'dataset.training_size': TRAINING_SIZE, 'optimizer.lr': 0.3}"
