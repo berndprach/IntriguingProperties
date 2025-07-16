@@ -10,25 +10,26 @@ from lipschitz.training.evaluate import evaluate
 from lipschitz.training.trainer import Trainer
 from lipschitz.scripts.train.configurations import DEFAULT_CONFIGURATIONS
 
+DC = list(DEFAULT_CONFIGURATIONS.keys())
+
 parser = argparse.ArgumentParser()
 
 add_arg = parser.add_argument
-add_arg("-c", "--configuration-name", default="lipschitz_network",
-        choices=DEFAULT_CONFIGURATIONS)
+add_arg("-c", "--configuration-name", default="lipschitz_network", choices=DC)
 add_arg("-u", "--updates", type=dictionary_str, default="{}")
 add_arg("--save-as", default=None)
-add_arg("-exp", "--experiment-name", default=None)  # Used for loading results.
-add_arg("-s", "--split", default=None)  # Only used for loading results.
+add_arg("-exp", "--experiment-name", default=None)  # Purely for result filter.
+add_arg("-s", "--split", default=None)  # Purely for results separating.
 
 
 def main():
-    config_train()
-
-
-def config_train():
     a = parser.parse_args()
     print(f"Arguments: {a}")
 
+    config_train(a)
+
+
+def config_train(a):
     c = DEFAULT_CONFIGURATIONS[a.configuration_name].copy()
     c.update(*a.updates.items())
     print(c)
@@ -53,4 +54,4 @@ def config_train():
 
 
 if __name__ == "__main__":
-    config_train()
+    main()
