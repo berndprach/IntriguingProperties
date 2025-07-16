@@ -1,6 +1,6 @@
 # IntriguingProperties
 
-This repository contains code to reproduce the experiments from the paper 
+This repository contains code to reproduce the experiments from our paper 
 [Intriguing Properties of Robust Classification](https://arxiv.org/pdf/2412.04245).
 It includes our e.g. our scripts for [training]() and [plotting]() results.
 
