@@ -2,7 +2,7 @@
 
 This repository contains code to reproduce the experiments from our paper 
 [Intriguing Properties of Robust Classification](https://berndprach.github.io/publication/IntriguingProperties)
-([pdf](https://arxiv.org/pdf/2412.04245)).
+([pdf](https://openaccess.thecvf.com/content/CVPR2025W/CV2/papers/Prach_Intriguing_Properties_of_Robust_Classification_CVPRW_2025_paper.pdf)).
 It includes our e.g. our scripts for 
 ([configuration](lipschitz/scripts/train/configurations)-based) model
 [training](lipschitz/scripts/train/main.py) and for
@@ -24,6 +24,7 @@ train -c="lipschitz_network" -u="{'model.name': 'AOL-MLP'}"
 train -c="lipschitz_network" -u="{'model.name': 'CPL-LCN', 'optimizer.lr': 1.}"
 train -c="randomized_smoothing"
 ```
+Alternatively, run the above commands with `python lipschitz/scripts/train/main.py`.
 
 ## Reproduce Experiments from the Paper:
 Follow the following pseudocode to run experiments similar to the ones in the paper:
